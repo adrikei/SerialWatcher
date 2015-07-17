@@ -29,28 +29,28 @@
 
                 <TextView
                     android:id="@+id/episode_details_displayTitle"
-                    android:text="From Pole to Pole"
+                    android:text="You know nothing, Jon Snow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/episode_details_highlightImage"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:textSize="24sp"
-                    android:textColor="#ffffff"/>
+                    android:layout_marginLeft="@dimen/default_spacing_large"
+                    android:layout_marginBottom="@dimen/default_spacing_large"
+                    android:textSize="@dimen/default_textSize_veryLarge"
+                    android:textColor="@color/default_textColor_first"/>
 
             </RelativeLayout>
 
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                card_view:cardCornerRadius="4dp"
-                card_view:contentPaddingLeft="19dp"
-                card_view:contentPaddingTop="16dp"
-                card_view:contentPaddingBottom="16dp"
+                card_view:cardCornerRadius="@dimen/default_card_radius"
+                card_view:contentPaddingLeft="@dimen/custom_spacing_large_two"
+                card_view:contentPaddingTop="@dimen/default_spacing_large"
+                card_view:contentPaddingBottom="@dimen/default_spacing_large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginTop="@dimen/default_spacing_large"
+                android:layout_marginLeft="@dimen/default_spacing_large"
+                android:layout_marginRight="@dimen/default_spacing_large">
 
                 <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -71,8 +71,9 @@
                         android:text="2015-04-22 at 21:00"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="#ff9800"
+                        android:layout_marginLeft="@dimen/custom_spacing_large_one"
+                        android:textSize="@dimen/default_textSize_medium"
+                        android:textColor="@color/default_textColor_second"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/episode_details_clock"/>
 
@@ -81,16 +82,16 @@
 
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                card_view:cardCornerRadius="4dp"
-                card_view:contentPaddingLeft="16dp"
-                card_view:contentPaddingRight="16dp"
+                card_view:cardCornerRadius="@dimen/default_card_radius"
+                card_view:contentPaddingLeft="@dimen/default_spacing_large"
+                card_view:contentPaddingRight="@dimen/default_spacing_large"
                 card_view:contentPaddingTop="16.5dp"
-                card_view:contentPaddingBottom="18dp"
+                card_view:contentPaddingBottom="@dimen/custom_spacing_large_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginTop="@dimen/default_spacing_medium"
+                android:layout_marginLeft="@dimen/default_spacing_large"
+                android:layout_marginRight="@dimen/default_spacing_large">
 
                 <LinearLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -101,17 +102,23 @@
                     <TextView
                         android:text="Summary"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/custom_spacing_medium_one"
+                        android:textColor="@color/default_textColor_third"
+                        android:textAllCaps="true"/>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#e5e5e5"/>
+                        android:background="@color/default_background_third"/>
 
                     <TextView
+                        android:id="@+id/episode_details_summary"
                         android:text="@string/lipsum"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/custom_spacing_medium_two"
+                        android:textColor="@color/default_textColor_fourth"/>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

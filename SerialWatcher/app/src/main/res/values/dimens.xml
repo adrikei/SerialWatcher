@@ -12,6 +12,8 @@
     <dimen name="custom_spacing_large_three">19dp</dimen>
     <dimen name="default_card_radius">4dp</dimen>
 
+    <dimen name="highlight_image_max_height">248dp</dimen>
+
     <dimen name="default_textSize_verySmall">12sp</dimen>
     <dimen name="default_textSize_small">14sp</dimen>
     <dimen name="default_textSize_medium">16sp</dimen>

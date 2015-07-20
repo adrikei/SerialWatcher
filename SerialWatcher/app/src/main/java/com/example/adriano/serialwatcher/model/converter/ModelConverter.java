@@ -1,8 +1,5 @@
 package com.example.adriano.serialwatcher.model.converter;
 
-/**
- * Created by Adriano on 7/15/15.
- */
 import com.google.gson.Gson;
 
 import com.example.adriano.serialwatcher.model.Episode;

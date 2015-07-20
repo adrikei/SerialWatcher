@@ -1,24 +1,5 @@
 <resources>
     <string name="app_name">SerialWatcher</string>
-    <string name="lipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus aliquet enim eros, eu tempus nisl blandit eu.
-        In at leo turpis. Nullam vehicula vulputate aliquam. Integer vestibulum, leo vehicula dictum tincidunt, nulla sem pretium leo, nec sodales neque mauris et augue.
-        Suspendisse ac elit a justo viverra tempus vitae et nunc. Aenean tempor ex non mollis dapibus.
-        Cras ante lectus, euismod non dolor ac, ornare iaculis diam. Ut vitae risus pellentesque lectus porta blandit.
-        Fusce quis pulvinar neque. Aliquam nisi eros, blandit ac malesuada vel, mattis id arcu.
-        Aenean mauris metus, luctus ac neque sed, pretium maximus nisl. Integer in convallis sapien, bibendum tincidunt lorem.
-        Nulla ac turpis sit amet leo aliquet fringilla. Quisque orci magna, egestas non ex nec, ultrices egestas orci. Vivamus tempor sed diam ac venenatis.
-        Aliquam quis leo et lorem imperdiet cursus eu in justo. Mauris iaculis luctus ullamcorper.
-        Etiam malesuada efficitur velit eget dictum. Curabitur commodo lectus libero, non luctus felis sodales feugiat.
-        Aenean pharetra neque risus, sit amet mollis mi tempor id. Curabitur sollicitudin ut dolor eget semper.
-        Vestibulum pellentesque, nulla vel iaculis vehicula, dolor massa luctus lacus, vitae porta leo ipsum et dolor.
-        Nunc a fringilla velit. Quisque ultricies, est sit amet molestie suscipit, est justo pharetra leo, eget maximus elit ligula nec magna.
-        Suspendisse potenti. Fusce metus metus, pulvinar nec purus vel, volutpat mollis elit. Ut tincidunt lorem in nulla porta, vitae ullamcorper nunc tempus.
-        Vivamus pretium purus vitae libero dictum, vitae placerat risus varius. Duis suscipit auctor elementum. Nam sit amet purus vitae nibh bibendum blandit.
-        Vivamus non massa fringilla, facilisis felis eu, semper ligula. Mauris nisi est, feugiat nec risus ac, porta vehicula elit.
-        Curabitur semper molestie est, eu placerat risus condimentum vel. Aliquam ut lacinia quam. Aenean sollicitudin ipsum nec vehicula pulvinar.
-        Quisque sed velit non velit efficitur pellentesque.
-    </string>
 
     <!-- Base Navigation -->
     <string name="base_navigation_drawer_open">Open</string>

@@ -13,4 +13,8 @@
 
     <!-- TO BE CONTINUED -->
 
+    <style name="AppTheme.CardViewTheme" parent="CardView">
+        <item name="cardCornerRadius">@dimen/default_card_radius</item>
+    </style>
+
 </resources>

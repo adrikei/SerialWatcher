@@ -17,9 +17,7 @@
                 <ImageView
                     android:id="@+id/episode_details_highlightImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/highlight_placeholder"
-                    android:scaleType="centerCrop"/>
+                    android:layout_height="@dimen/highlight_image_max_height"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -29,7 +27,6 @@
 
                 <TextView
                     android:id="@+id/episode_details_displayTitle"
-                    android:text="You know nothing, Jon Snow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/episode_details_highlightImage"
@@ -42,7 +39,7 @@
 
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                card_view:cardCornerRadius="@dimen/default_card_radius"
+                style="@style/AppTheme.CardViewTheme"
                 card_view:contentPaddingLeft="@dimen/custom_spacing_large_two"
                 card_view:contentPaddingTop="@dimen/default_spacing_large"
                 card_view:contentPaddingBottom="@dimen/default_spacing_large"
@@ -68,7 +65,6 @@
 
                     <TextView
                         android:id="@+id/episode_details_airTime"
-                        android:text="2015-04-22 at 21:00"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/custom_spacing_large_one"
@@ -114,7 +110,6 @@
 
                     <TextView
                         android:id="@+id/episode_details_summary"
-                        android:text="@string/lipsum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="@dimen/custom_spacing_medium_two"

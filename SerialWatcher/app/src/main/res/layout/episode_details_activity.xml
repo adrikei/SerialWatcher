@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -16,6 +16,8 @@
 
                 <ImageView
                     android:id="@+id/episode_details_highlightImage"
+                    android:src="@drawable/highlight_placeholder"
+                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/highlight_image_max_height"/>
 
@@ -96,7 +98,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:text="Summary"
+                        android:text="@string/episode_details_summary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="@dimen/custom_spacing_medium_one"

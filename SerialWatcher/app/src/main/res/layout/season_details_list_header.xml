@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/season_details_list_image"
+            android:src="@drawable/highlight_placeholder"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/highlight_image_max_height"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/overlay"
+            android:layout_alignBottom="@id/season_details_list_image"/>
+
+        <ImageView
+            android:src="@drawable/season_details_show_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:background="@color/theme_colorAccent"
+            android:layout_below="@id/season_details_list_image"/>
+
+        <!-- TODO - Nota -->
+
+        <TextView
+            android:text="9.7"
+            android:paddingTop="14dp"
+            android:paddingBottom="13dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="4.6dp"
+            android:background="#f57c00"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <!-- 16 top 16 right -->
+
+        <TextView
+            android:id="@+id/season_details_list_season_title"
+            android:text="Season"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/season_details_list_image"
+            android:layout_marginLeft="@dimen/default_spacing_large"
+            android:layout_marginBottom="@dimen/default_spacing_large"
+            android:textSize="@dimen/default_textSize_veryLarge"
+            android:textColor="@color/default_textColor_first"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

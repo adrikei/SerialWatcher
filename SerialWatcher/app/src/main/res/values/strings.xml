@@ -5,4 +5,7 @@
     <string name="base_navigation_drawer_open">Open</string>
     <string name="base_navigation_drawer_close">Close</string>
 
+    <!-- Activity strings -->
+    <string name="episode_details_summary">Summary</string>
+
 </resources>

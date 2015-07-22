@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/series_details_highlight_image"
+        android:src="@drawable/highlight_placeholder"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/highlight_image_max_height"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/series_details_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/pager_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

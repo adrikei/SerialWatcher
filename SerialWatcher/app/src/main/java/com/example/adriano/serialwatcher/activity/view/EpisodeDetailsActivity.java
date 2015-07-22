@@ -1,18 +1,23 @@
-package com.example.adriano.serialwatcher.activity;
+package com.example.adriano.serialwatcher.activity.view;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.adriano.serialwatcher.R;
+import com.example.adriano.serialwatcher.activity.view.base.BaseNavigationToolbarActivity;
 import com.example.adriano.serialwatcher.activity.contract.EpisodeDetailsView;
+import com.example.adriano.serialwatcher.activity.presenter.EpisodeDetailsPresenter;
 import com.example.adriano.serialwatcher.model.Episode;
 import com.example.adriano.serialwatcher.util.FormatUtil;
 
 
-public class EpisodeDetailsActivity extends AppCompatActivity implements EpisodeDetailsView{
+public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implements EpisodeDetailsView{
+
+	public static final String SHOW = "show";
+	public static final String SEASON = "season";
+	public static final String EPISODE = "episode";
 
 	private EpisodeDetailsPresenter presenter;
 
@@ -20,6 +25,7 @@ public class EpisodeDetailsActivity extends AppCompatActivity implements Episode
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.episode_details_activity);
+		configureToolbar();
 
 		this.presenter = new EpisodeDetailsPresenter(this, this);
 	}

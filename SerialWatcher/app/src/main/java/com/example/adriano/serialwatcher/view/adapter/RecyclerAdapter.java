@@ -46,7 +46,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 	public static class ViewHolder extends RecyclerView.ViewHolder{
 		private View view; // -> CardView
-		//TODO - outras views do cardview como titulo e descricao via findViewById
+		//TODO - itens internos do cardview como titulo e descricao via findViewById
 
 		public ViewHolder(View root){
 			super(root);//a mensagem aqui é bem estranha se não chamar o super

@@ -1,9 +1,5 @@
 package com.example.adriano.serialwatcher.model;
 
-/**
- * Created by Adriano on 7/15/15.
- */
-
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;

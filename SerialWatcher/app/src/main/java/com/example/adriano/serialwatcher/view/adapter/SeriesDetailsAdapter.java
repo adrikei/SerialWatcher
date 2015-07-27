@@ -6,8 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.adriano.serialwatcher.view.view.fragment.SeriesDetailsInfoFragment;
-import com.example.adriano.serialwatcher.view.view.fragment.SeriesDetailsSeasonsFragment;
+import com.example.adriano.serialwatcher.R;
+import com.example.adriano.serialwatcher.view.fragment.SeriesDetailsInfoFragment;
+import com.example.adriano.serialwatcher.view.fragment.SeriesDetailsSeasonsFragment;
 
 public class SeriesDetailsAdapter extends FragmentPagerAdapter {
 
@@ -39,4 +40,15 @@ public class SeriesDetailsAdapter extends FragmentPagerAdapter {
 		return 2;
 	}
 
+	@Override
+	public CharSequence getPageTitle(int position) {
+		switch (position){
+			case SERIES_INFO_FRAGMENT_POSITION:
+				return this.context.getString(R.string.series_details_series_info);
+			case SEASONS_LIST_FRAGMENT_POSITION:
+				return this.context.getString(R.string.series_details_series_seasons);
+			default:
+				return null;
+		}
+	}
 }

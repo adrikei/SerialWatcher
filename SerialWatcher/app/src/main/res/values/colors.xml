@@ -32,4 +32,8 @@
 
     <!-- Base Loading -->
     <color name="base_loading_container_background">#99333333</color>
+
+    <!-- -->
+    <color name="toggle_off">#9b9b9b</color>
+    <color name="toggle_on">#f57c00</color>
 </resources>

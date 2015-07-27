@@ -3,5 +3,10 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/series_listing_grid_item_id"
+        android:layout_width="@dimen/grid_image_width"
+        android:layout_height="@dimen/grid_image_height"
+        android:src="@drawable/season_item_placeholder"/>
 
 </LinearLayout>

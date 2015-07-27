@@ -8,11 +8,10 @@
     <integer name="api_timeout_connect">15000</integer>
 
     <!-- Updates API -->
-    <string name="api_url_updates">https://movile-up-android.firebaseio.com</string>
-
+    <string name="api_url_updates">https://movile-up-android.firebaseio.com</string>;
     <!-- Broadcast -->
     <string name="broacast_action_show_update">com.movile.up.seriestracker.action.SHOW_UPDATE</string>
-
     <!-- Database -->
     <string name="database_authority">com.movile.up.seriestracker.authority</string>
+
 </resources>

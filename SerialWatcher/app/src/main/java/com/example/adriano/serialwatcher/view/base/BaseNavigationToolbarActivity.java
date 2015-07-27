@@ -36,4 +36,8 @@ public class BaseNavigationToolbarActivity extends BaseLoadingActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	protected void setToolbarTitle(String title){
+		getSupportActionBar().setTitle(title);
+	}
 }

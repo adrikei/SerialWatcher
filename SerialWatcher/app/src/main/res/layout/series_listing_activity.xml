@@ -4,4 +4,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <GridView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/series_listing_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="auto_fit"
+        style="@style/AppTheme.Grid" />
+
 </LinearLayout>

@@ -6,9 +6,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.adriano.serialwatcher.R;
+import com.example.adriano.serialwatcher.model.Images;
 import com.example.adriano.serialwatcher.view.base.BaseNavigationToolbarActivity;
 import com.example.adriano.serialwatcher.view.contract.EpisodeDetailsView;
-import com.example.adriano.serialwatcher.view.presenter.EpisodeDetailsPresenter;
+import com.example.adriano.serialwatcher.presenter.EpisodeDetailsPresenter;
 import com.example.adriano.serialwatcher.model.Episode;
 import com.example.adriano.serialwatcher.util.FormatUtil;
 
@@ -28,6 +29,7 @@ public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implem
 		configureToolbar();
 
 		this.presenter = new EpisodeDetailsPresenter(this, this);
+		presenter.loadEpisodeDetails("futurama", 1l, 1l); //TODO - read from intent
 	}
 
 	@Override
@@ -55,9 +57,9 @@ public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implem
 
 		Glide
 				.with(this)
-				.load(episode.images().screenshot().get("full"))
+				.load(episode.images().screenshot().get(Images.ImageSize.FULL))
 				.placeholder(R.drawable.highlight_placeholder)
 				.centerCrop()
-				.into((ImageView)findViewById(R.id.episode_details_highlightImage));
+				.into((ImageView) findViewById(R.id.episode_details_highlightImage));
 	}
 }

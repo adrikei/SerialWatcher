@@ -1,7 +1,7 @@
 package com.example.adriano.serialwatcher.view.contract;
 
-/**
- * Created by Adriano on 7/26/15.
- */
-public class SeriesDetailsView {
+import com.example.adriano.serialwatcher.model.Show;
+
+public interface SeriesDetailsView {
+	void displaySeries(Show show);
 }

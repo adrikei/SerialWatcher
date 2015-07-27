@@ -8,8 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.adriano.serialwatcher.R;
-import com.example.adriano.serialwatcher.view.view.SeasonDetailsActivity;
+import com.example.adriano.serialwatcher.view.activity.EpisodeListingActivity;
 import com.example.adriano.serialwatcher.model.Episode;
+import com.example.adriano.serialwatcher.view.contract.EpisodeClickListener;
+import com.example.adriano.serialwatcher.view.contract.EpisodeListingView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +20,12 @@ import java.util.List;
 public class EpisodeListAdapter extends ArrayAdapter<Episode> {
 
 	private List<Episode> episodes;
-	//TODO - presenter
+	private EpisodeClickListener ecl;
 
-	public EpisodeListAdapter(Context context){
-		super(context, 0);//TODO - 0?
+	public EpisodeListAdapter(Context context, EpisodeClickListener ecl){
+		super(context, R.layout.season_details_list_item);
 		this.episodes = new ArrayList<>();
+		this.ecl = ecl;
 	}
 
 	public int getCount(){
@@ -40,7 +43,7 @@ public class EpisodeListAdapter extends ArrayAdapter<Episode> {
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		ViewHolder holder;
-//		int type = getItemViewType(position);
+//		int type = getItemViewType(position); //parte do to-do abaixo
 		if(view == null){
 			int resource = R.layout.season_details_list_item;
 			//if type == TBA... //TODO
@@ -65,13 +68,13 @@ public class EpisodeListAdapter extends ArrayAdapter<Episode> {
 
 		view.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				((SeasonDetailsActivity) getContext()).onEpisodeClick(ep);
+				ecl.onEpisodeClick(ep);
 			}
 		});
 
 	}
 
-	public void setItems(List<Episode> episodes){
+	public void setEpisodes(List<Episode> episodes){
 		this.episodes = episodes;
 		this.notifyDataSetChanged();
 	}

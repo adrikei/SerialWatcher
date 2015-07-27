@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface SeriesListingView {
 	void displaySeries(List<Show> shows);
-	void onSeriesClick(Show show);
 }

@@ -1,7 +1,9 @@
 package com.example.adriano.serialwatcher.service.contract;
 
-/**
- * Created by Adriano on 7/23/15.
- */
+import com.example.adriano.serialwatcher.model.Show;
+
+import java.util.List;
+
 public interface CallableForSeriesList {
+	void onSeriesListSuccess(List<Show> shows);
 }

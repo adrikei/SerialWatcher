@@ -46,4 +46,15 @@
         <item name="android:indeterminate">true</item>
     </style>
 
+    <style name="AppTheme.Grid">
+        <item name="android:numColumns">3</item>
+        <item name="android:verticalSpacing">@dimen/grid_spacing</item>
+        <item name="android:gravity">center</item>
+        <item name="android:columnWidth">@dimen/grid_item_width</item>
+        <item name="android:stretchMode">spacingWidthUniform</item>
+        <item name="android:paddingTop">@dimen/grid_padding</item>
+        <item name="android:paddingBottom">@dimen/grid_padding</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
 </resources>

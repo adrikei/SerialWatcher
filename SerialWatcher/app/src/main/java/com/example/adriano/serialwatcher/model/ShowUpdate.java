@@ -1,8 +1,5 @@
 package com.example.adriano.serialwatcher.model;
 
-/**
- * Created by Adriano on 7/15/15.
- */
 import java.io.Serializable;
 
 public class ShowUpdate implements Serializable {

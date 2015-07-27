@@ -12,16 +12,18 @@ public class EpisodeDetailsPresenter implements CallableForEpisodeDetails{
 	private EpisodeDetailsView view;
 	private Context context;
 
-	//TODO - Remover hardcoded
 	public EpisodeDetailsPresenter(EpisodeDetailsView view, Context context){
 		this.view = view;
 		this.context = context;
+	}
 
+	public void loadEpisodeDetails(String seriesName, long seasonNumber, long episodeNumber){
 		SeriesInfoRetriever sir = new SeriesInfoRetriever(this.context);
-		sir.requestEpisodeDetails("futurama", 1l, 1l, this);
+		sir.requestEpisodeDetails(seriesName, seasonNumber, episodeNumber, this);
 	}
 
 	public void onEpisodeDetailsSuccess(Episode episode) {
 		view.displayEpisode(episode);
 	}
+
 }

@@ -5,9 +5,13 @@ import android.util.Log;
 
 import com.example.adriano.serialwatcher.R;
 import com.example.adriano.serialwatcher.model.Episode;
+import com.example.adriano.serialwatcher.model.Season;
+import com.example.adriano.serialwatcher.model.Show;
 import com.example.adriano.serialwatcher.service.contract.CallableForEpisodeDetails;
-import com.example.adriano.serialwatcher.service.contract.CallableForSeasonDetails;
-import com.example.adriano.serialwatcher.service.retrofit.EpisodeDetailer;
+import com.example.adriano.serialwatcher.service.contract.CallableForEpisodesList;
+import com.example.adriano.serialwatcher.service.contract.CallableForSeasonList;
+import com.example.adriano.serialwatcher.service.contract.CallableForSeriesList;
+import com.example.adriano.serialwatcher.service.retrofit.SeriesDetailer;
 
 import java.util.List;
 
@@ -26,25 +30,27 @@ public class SeriesInfoRetriever {
 	}
 
 	//TODO - Errors should trigger some behavior on who calls this method, instead of simple logging
-	public void requestSeasonDetails(String seriesName, long seasonNumber, final CallableForSeasonDetails callable){
+	public void requestEpisodesList(String seriesName, long seasonNumber, final CallableForEpisodesList callable){
 		RestAdapter adapter = new RestAdapter.Builder().setEndpoint(this.context.getString(R.string.api_url_base)).build();
-		EpisodeDetailer service = adapter.create(EpisodeDetailer.class);
+		SeriesDetailer service = adapter.create(SeriesDetailer.class);
 
-		service.getSeasonDetails(seriesName, seasonNumber, new Callback<List<Episode>>() {
+		service.getEpisodesList(seriesName, seasonNumber, new Callback<List<Episode>>() {
 			@Override
 			public void success(List<Episode> episodes, Response response) {
-				callable.onSeasonDetailsSuccess(episodes);
+				callable.onEpisodesListSuccess(episodes);
 			}
 
 			@Override
-			public void failure(RetrofitError error) { Log.e(tag, error.toString());	}
+			public void failure(RetrofitError error) {
+				Log.e(tag, error.toString());
+			}
 		});
 	}
 
 	//TODO - Errors should trigger some behavior on who calls this method, instead of simple logging
 	public void requestEpisodeDetails(String seriesName, long seasonNumber, long episodeNumber, final CallableForEpisodeDetails callable){
 		RestAdapter adapter = new RestAdapter.Builder().setEndpoint(this.context.getString(R.string.api_url_base)).build();
-		EpisodeDetailer service = adapter.create(EpisodeDetailer.class);
+		SeriesDetailer service = adapter.create(SeriesDetailer.class);
 
 		service.getEpisodeDetails(seriesName, seasonNumber, episodeNumber, new Callback<Episode>() {
 
@@ -54,7 +60,45 @@ public class SeriesInfoRetriever {
 			}
 
 			@Override
-			public void failure(RetrofitError error) { Log.e(tag, error.toString() );	}
+			public void failure(RetrofitError error) {
+				Log.e(tag, error.toString());
+			}
+		});
+	}
+
+	//TODO - Errors should trigger some behavior on who calls this method, instead of simple logging
+	public void requestSeasonsList(String SeriesName, final CallableForSeasonList callable){
+		RestAdapter adapter = new RestAdapter.Builder().setEndpoint(this.context.getString(R.string.api_url_base)).build();
+		SeriesDetailer service = adapter.create(SeriesDetailer.class);
+
+		service.getSeasonsList(SeriesName, new Callback<List<Season>>() {
+			@Override
+			public void success(List<Season> seasons, Response response) {
+				callable.onSeasonsListSuccess(seasons);
+			}
+
+			@Override
+			public void failure(RetrofitError error) {
+				Log.e(tag, error.toString());
+			}
+		});
+	}
+
+	//TODO - Errors should trigger some behavior on who calls this method, instead of simple logging
+	public void requestSeriesList(final CallableForSeriesList callable){
+		RestAdapter adapter = new RestAdapter.Builder().setEndpoint(this.context.getString(R.string.api_url_base)).build();
+		SeriesDetailer service = adapter.create(SeriesDetailer.class);
+
+		service.getSeriesList(new Callback<List<Show>>() {
+			@Override
+			public void success(List<Show> shows, Response response) {
+				callable.onSeriesListSuccess(shows);
+			}
+
+			@Override
+			public void failure(RetrofitError error) {
+				Log.e(tag, error.toString());
+			}
 		});
 	}
 }

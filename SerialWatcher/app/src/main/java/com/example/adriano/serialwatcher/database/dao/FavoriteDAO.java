@@ -2,11 +2,13 @@ package com.example.adriano.serialwatcher.database.dao;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 
-import com.example.adriano.serialwatcher.database.entity.FavoriteEntity;
-import com.example.adriano.serialwatcher.helper.ProviderUriHelper;
+import com.example.adriano.serialwatcher.database.FavoriteEntity;
+import com.example.adriano.serialwatcher.database.FavoriteEntity$Table;
 import com.example.adriano.serialwatcher.model.Favorite;
+import com.raizlabs.android.dbflow.sql.builder.Condition;
+import com.raizlabs.android.dbflow.sql.language.Delete;
+import com.raizlabs.android.dbflow.sql.language.Select;
 
 public class FavoriteDAO {
 	private Context mContext;
@@ -16,40 +18,19 @@ public class FavoriteDAO {
 	}
 
 	public void save(Favorite favorite) {
-		Uri uri = new ProviderUriHelper(mContext).mountManyUri(FavoriteEntity.FavoriteEntityFields.TABLE_NAME);
-
-		FavoriteEntity entity = new FavoriteEntity(favorite.slug(), favorite.title());
-		mContext.getContentResolver().insert(uri, entity.toContentValues());
+		new FavoriteEntity(favorite.slug(), favorite.title()).save();
 	}
 
 	public Cursor all() {
-		Uri uri = new ProviderUriHelper(mContext).mountManyUri(FavoriteEntity.FavoriteEntityFields.TABLE_NAME);
-		return mContext.getContentResolver().query(uri, null, null, null, FavoriteEntity.FavoriteEntityFields.COLUMN_TITLE);
+		return new Select().from(FavoriteEntity.class).queryCursorList().getCursor();
 	}
 
 	public Favorite query(String slug) {
-		Cursor cursor = null;
-		Favorite favorite = null;
-
-		try {
-			Uri uri = new ProviderUriHelper(mContext).mountManyUri(FavoriteEntity.FavoriteEntityFields.TABLE_NAME);
-			cursor = mContext.getContentResolver().query(uri, null, FavoriteEntity.FavoriteEntityFields.COLUMN_SLUG + " = ?", new String[]{slug}, null);
-
-			if (cursor.moveToFirst()) {
-				FavoriteEntity entity = new FavoriteEntity().fromCursor(cursor);
-				favorite = new Favorite(entity.slug(), entity.title());
-			}
-		} finally {
-			if (cursor != null) {
-				cursor.close();
-			}
-		}
-
-		return favorite;
+		FavoriteEntity fav = new Select().from(FavoriteEntity.class).where(Condition.column(FavoriteEntity$Table.SLUG).eq(slug)).querySingle();
+		return fav != null ? new Favorite(fav.slug, fav.title) : null;
 	}
 
 	public void delete(String slug) {
-		Uri uri = new ProviderUriHelper(mContext).mountManyUri(FavoriteEntity.FavoriteEntityFields.TABLE_NAME);
-		mContext.getContentResolver().delete(uri, FavoriteEntity.FavoriteEntityFields.COLUMN_SLUG + " = ?", new String[]{slug});
+		new Delete().from(FavoriteEntity.class).where(Condition.column(FavoriteEntity$Table.SLUG).eq(slug)).queryClose();
 	}
 }

@@ -9,9 +9,20 @@ import android.view.ViewGroup;
 import com.example.adriano.serialwatcher.R;
 
 public class SeriesDetailsInfoFragment extends Fragment {
+
+	private Bundle arguments;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.series_details_fragment_info, container, false);
+		View root = inflater.inflate(R.layout.series_details_fragment_info, container, false);
+
+		return root;
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.arguments = getArguments();
 	}
 }

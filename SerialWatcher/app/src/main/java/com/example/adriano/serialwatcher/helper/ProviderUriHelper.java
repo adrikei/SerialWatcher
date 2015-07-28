@@ -5,7 +5,7 @@ import android.content.UriMatcher;
 import android.net.Uri;
 
 import com.example.adriano.serialwatcher.R;
-import com.example.adriano.serialwatcher.database.entity.FavoriteEntity;
+import com.example.adriano.serialwatcher.database.entity.OldFavoriteEntity;
 
 public class ProviderUriHelper {
 
@@ -23,8 +23,8 @@ public class ProviderUriHelper {
 		mAuthority = context.getString(R.string.database_authority);
 
 		mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-		mUriMatcher.addURI(mAuthority, FavoriteEntity.FavoriteEntityFields.TABLE_NAME, CODE_FAVORITE_MANY);
-		mUriMatcher.addURI(mAuthority, FavoriteEntity.FavoriteEntityFields.TABLE_NAME + SINGLE_PATH_SUFFIX, CODE_FAVORITE_SINGLE);
+		mUriMatcher.addURI(mAuthority, OldFavoriteEntity.FavoriteEntityFields.TABLE_NAME, CODE_FAVORITE_MANY);
+		mUriMatcher.addURI(mAuthority, OldFavoriteEntity.FavoriteEntityFields.TABLE_NAME + SINGLE_PATH_SUFFIX, CODE_FAVORITE_SINGLE);
 	}
 
 	public int match(Uri uri) {

@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
 
 import com.example.adriano.serialwatcher.helper.DatabaseHelper;
 
-public class FavoriteEntity {
+public class OldFavoriteEntity {
 
 	public static class FavoriteEntityFields implements BaseColumns {
 		public static final String TABLE_NAME = "favorite";
@@ -36,10 +36,10 @@ public class FavoriteEntity {
 	private String mSlug;
 	private String mTitle;
 
-	public FavoriteEntity() {
+	public OldFavoriteEntity() {
 	}
 
-	public FavoriteEntity(String slug, String title) {
+	public OldFavoriteEntity(String slug, String title) {
 		mSlug = slug;
 		mTitle = title;
 	}
@@ -59,7 +59,7 @@ public class FavoriteEntity {
 		return values;
 	}
 
-	public FavoriteEntity fromCursor(Cursor cursor) {
+	public OldFavoriteEntity fromCursor(Cursor cursor) {
 		mTitle = cursor.getString(cursor.getColumnIndexOrThrow(FavoriteEntityFields.COLUMN_TITLE));
 		mSlug = cursor.getString(cursor.getColumnIndexOrThrow(FavoriteEntityFields.COLUMN_SLUG));
 		return this;

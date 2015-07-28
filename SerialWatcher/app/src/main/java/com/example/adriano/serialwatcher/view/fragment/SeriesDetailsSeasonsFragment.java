@@ -21,6 +21,7 @@ public class SeriesDetailsSeasonsFragment extends Fragment implements SeasonList
 
 	private RecyclerAdapter adapter;
 	private Context context; //ok?
+	private Bundle arguments;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +38,12 @@ public class SeriesDetailsSeasonsFragment extends Fragment implements SeasonList
 		this.context = root.getContext();
 
 		return root;
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.arguments = getArguments();
 	}
 
 	@Override

@@ -30,6 +30,8 @@ android {
     }
 }
 
+apply plugin: 'com.neenbedankt.android-apt'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
@@ -42,6 +44,11 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.1.0'
 
     compile 'com.android.support:design:22.2.0'
+
+    apt 'com.raizlabs.android:DBFlow-Compiler:2.0.0'
+    compile 'com.raizlabs.android:DBFlow-Core:2.0.0'
+    compile 'com.raizlabs.android:DBFlow:2.0.0'
+
 
     debugCompile 'com.facebook.stetho:stetho:1.1.1'
 }

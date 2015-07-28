@@ -20,19 +20,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/series_details_highlight_image"
+            android:layout_alignRight="@id/series_details_highlight_image"
+            android:layout_marginRight="16.2dp"
+            android:layout_marginBottom="17.1dp"
             />
 
     </RelativeLayout>
 
     <android.support.v4.view.ViewPager
-
         android:id="@+id/series_details_view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <android.support.v4.view.PagerTabStrip
             android:id="@+id/pager_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@color/default_color_second"
+            android:isScrollContainer="false"/>
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>

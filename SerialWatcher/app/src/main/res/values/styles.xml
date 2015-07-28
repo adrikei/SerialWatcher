@@ -15,6 +15,10 @@
 
     <style name="AppTheme.CardViewTheme" parent="CardView">
         <item name="cardCornerRadius">@dimen/default_card_radius</item>
+        <item name="contentPaddingTop">@dimen/custom_spacing_large_one</item>
+        <item name="contentPaddingBottom">@dimen/custom_spacing_large_two</item>
+        <item name="contentPaddingLeft">@dimen/default_spacing_large</item>
+        <item name="contentPaddingRight">@dimen/default_spacing_large</item>
     </style>
 
     <!-- Base Navigation -->

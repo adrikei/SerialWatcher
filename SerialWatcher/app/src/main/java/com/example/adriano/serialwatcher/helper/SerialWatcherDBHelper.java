@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.adriano.serialwatcher.configuration.DatabaseConfiguration;
-import com.example.adriano.serialwatcher.database.entity.FavoriteEntity;
+import com.example.adriano.serialwatcher.database.entity.OldFavoriteEntity;
 
 public class SerialWatcherDBHelper extends SQLiteOpenHelper {
 
@@ -15,12 +15,12 @@ public class SerialWatcherDBHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL(FavoriteEntity.FavoriteEntityFields.createSql());
+		database.execSQL(OldFavoriteEntity.FavoriteEntityFields.createSql());
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
-		database.execSQL(FavoriteEntity.FavoriteEntityFields.dropSql());
+		database.execSQL(OldFavoriteEntity.FavoriteEntityFields.dropSql());
 		onCreate(database);
 	}
 }

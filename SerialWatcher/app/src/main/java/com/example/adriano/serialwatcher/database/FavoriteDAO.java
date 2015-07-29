@@ -1,15 +1,15 @@
-package com.example.adriano.serialwatcher.database.dao;
+package com.example.adriano.serialwatcher.database;
 
 import android.content.Context;
 import android.database.Cursor;
 
-import com.example.adriano.serialwatcher.database.FavoriteEntity;
-import com.example.adriano.serialwatcher.database.FavoriteEntity$Table;
 import com.example.adriano.serialwatcher.model.Favorite;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Delete;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
+
+//TODO - organizar pacote
 public class FavoriteDAO {
 	private Context mContext;
 

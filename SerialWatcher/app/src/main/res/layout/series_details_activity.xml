@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -13,7 +14,8 @@
             android:src="@drawable/highlight_placeholder"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/highlight_image_max_height"/>
+            android:layout_height="@dimen/highlight_image_max_height"
+            tools:ignore="ContentDescription"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/series_details_toggle_heart"
@@ -22,21 +24,22 @@
             android:layout_alignBottom="@id/series_details_highlight_image"
             android:layout_alignRight="@id/series_details_highlight_image"
             android:layout_marginRight="16.2dp"
-            android:layout_marginBottom="17.1dp"
-            />
-
+            android:layout_marginBottom="17.1dp"/>
     </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/series_details_view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <android.support.v4.view.PagerTabStrip
             android:id="@+id/pager_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@color/default_color_second"
-            android:isScrollContainer="false"/>
+            android:isScrollContainer="false"
+            android:textColor="@color/theme_textColorPrimary"/>
+
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>

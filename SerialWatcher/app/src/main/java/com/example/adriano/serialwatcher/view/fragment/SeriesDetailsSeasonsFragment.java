@@ -30,7 +30,7 @@ public class SeriesDetailsSeasonsFragment extends Fragment implements SeasonList
 		View root = inflater.inflate(R.layout.series_details_fragment_seasons, container, false);
 
 		RecyclerView view = (RecyclerView) root.findViewById(R.id.series_details_fragment_seasons_carousel);
-		view.setLayoutManager(new LinearLayoutManager(root.getContext(), LinearLayoutManager.VERTICAL, false));
+		view.setLayoutManager(new LinearLayoutManager(root.getContext(), LinearLayoutManager.VERTICAL, false)); //específico do recycler.
 		RecyclerAdapter adapter = new RecyclerAdapter(root.getContext(), R.layout.series_details_fragment_seasons_item);
 		view.setAdapter(adapter);
 

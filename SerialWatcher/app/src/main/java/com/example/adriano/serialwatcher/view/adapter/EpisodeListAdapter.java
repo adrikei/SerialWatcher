@@ -58,7 +58,7 @@ public class EpisodeListAdapter extends ArrayAdapter<Episode> {
 		return view;
 	}
 
-	public void populateViewFromHolder(ViewHolder holder, int position){
+	private void populateViewFromHolder(ViewHolder holder, int position){
 
 		final Episode ep = getItem(position);
 

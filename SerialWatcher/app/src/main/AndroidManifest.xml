@@ -34,9 +34,6 @@
 			</intent-filter>
 		</activity>
 		<service android:name=".service.FirebaseUpdateService" android:exported="false"/>
-		<provider
-			android:authorities="@string/database_authority"
-			android:name=".contentprovider.SerialWatcherContentProvider"/>
 	</application>
 
 </manifest>

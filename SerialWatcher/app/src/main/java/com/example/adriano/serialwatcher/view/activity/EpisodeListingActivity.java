@@ -25,8 +25,6 @@ public class EpisodeListingActivity extends BaseNavigationToolbarActivity implem
 		setContentView(R.layout.season_details_activity);
 		configureToolbar();
 
-		this.presenter = new EpisodesListPresenter(this, this);
-
 		ListView view = (ListView) findViewById(R.id.season_details_list_view);
 
 		//TODO
@@ -36,6 +34,9 @@ public class EpisodeListingActivity extends BaseNavigationToolbarActivity implem
 
 		this.adapter = new EpisodeListAdapter(this, this); //presenter deveria conhecer o adapter?
 		view.setAdapter(adapter);
+
+		this.presenter = new EpisodesListPresenter(this, this);
+		presenter.fetchEpisodesList("futurama", 1l);
 	}
 
 	@Override

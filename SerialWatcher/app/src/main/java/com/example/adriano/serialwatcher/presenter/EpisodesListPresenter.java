@@ -14,14 +14,15 @@ public class EpisodesListPresenter implements CallableForEpisodesList {
 	private EpisodeListingView view;
 	private Context context;
 
-	//TODO - remover hardcoded
 	public EpisodesListPresenter(EpisodeListingView view, Context context){
 
 		this.view = view;
 		this.context = context;
+	}
 
+	public void fetchEpisodesList(String show, long seasonNumber){
 		SeriesInfoRetriever sir = new SeriesInfoRetriever(context);
-		sir.requestEpisodesList("futurama", 1l, this);
+		sir.requestEpisodesList(show, seasonNumber, this);
 	}
 
 	@Override

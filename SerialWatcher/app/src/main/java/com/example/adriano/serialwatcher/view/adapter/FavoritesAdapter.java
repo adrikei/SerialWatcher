@@ -10,31 +10,52 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import com.example.adriano.serialwatcher.R;
+import com.example.adriano.serialwatcher.database.FavoriteEntity;
+import com.example.adriano.serialwatcher.database.FavoriteEntity$Adapter;
+import com.example.adriano.serialwatcher.database.FavoriteEntity$Table;
+import com.example.adriano.serialwatcher.model.Favorite;
+import com.example.adriano.serialwatcher.view.contract.FavoriteClickListener;
 
 public class FavoritesAdapter extends CursorAdapter {
 
-	public FavoritesAdapter(Context context) {
+	private FavoriteClickListener listener;
+
+	public FavoritesAdapter(Context context, FavoriteClickListener listener) {
 		super(context, null, 0); //0?
+		this.listener = listener;
 	}
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		return LayoutInflater.from(context).inflate(R.layout.favorite_shows_list_item, parent, false);
+		View view = LayoutInflater.from(context).inflate(R.layout.favorite_shows_list_item, parent, false);
+
+		ViewHolder holder = new ViewHolder(view);
+		view.setTag(holder);
+
+		return view;
 	}
 
 	@Override
-	public void bindView(View view, Context context, Cursor cursor) {
+	public void bindView(View view, Context context, final Cursor cursor) {
 		ViewHolder holder;
 
-		if(view.getTag() != null){
-			holder = (ViewHolder) view.getTag();
-		}else{
-			holder = new ViewHolder(view);
-		}
+		FavoriteEntity$Adapter entityAdapter = new FavoriteEntity$Adapter();
+		final FavoriteEntity entity = new FavoriteEntity();
+		entityAdapter.loadFromCursor(cursor, entity); //O cursor precisa ser consumido
+
+		holder = (ViewHolder) view.getTag();
 
 		TextView tv = (TextView) holder.getView();
-		tv.setText(cursor.getString(2));
+		tv.setText(entity.title);
+
 		view.setTag(holder);
+
+		view.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				listener.onFavoriteClick(new Favorite(entity.slug, entity.title));
+			}
+		});
 	}
 
 	public static class ViewHolder{

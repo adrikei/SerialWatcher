@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.adriano.serialwatcher.R;
-import com.example.adriano.serialwatcher.view.fragment.SeriesDetailsInfoFragment;
-import com.example.adriano.serialwatcher.view.fragment.SeriesDetailsSeasonsFragment;
+import com.example.adriano.serialwatcher.view.fragment.SeriesInfoFragment;
+import com.example.adriano.serialwatcher.view.fragment.SeasonsFragment;
 
 public class SeriesDetailsAdapter extends FragmentPagerAdapter {
 
@@ -16,7 +16,6 @@ public class SeriesDetailsAdapter extends FragmentPagerAdapter {
 	private static final int SEASONS_LIST_FRAGMENT_POSITION = 1;
 
 	private Context context;
-	//Não tem lista de itens porque é 2 "hardcoded" //TODO - por enquanto?
 
 	public SeriesDetailsAdapter(FragmentManager manager, Context context){
 		super(manager);
@@ -26,10 +25,10 @@ public class SeriesDetailsAdapter extends FragmentPagerAdapter {
 	@Override
 	public Fragment getItem(int position){
 		switch(position){
-			case SERIES_INFO_FRAGMENT_POSITION:
-				return new SeriesDetailsInfoFragment();
 			case SEASONS_LIST_FRAGMENT_POSITION:
-				return new SeriesDetailsSeasonsFragment();
+				return new SeasonsFragment();
+			case SERIES_INFO_FRAGMENT_POSITION:
+				return new SeriesInfoFragment();
 			default:
 				return null;
 		}

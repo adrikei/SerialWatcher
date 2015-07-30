@@ -31,6 +31,8 @@ public interface SeriesDetailer {
 	void getEpisodesList(@Path("show") String show, @Path("season") Long season,
 	                     Callback<List<Episode>> callback);
 
+	//no season details
+
 	@Headers({
 			"trakt-api-version: " + ApiConfiguration.API_VERSION,
 			"trakt-api-key: " + ApiConfiguration.API_KEY
@@ -42,6 +44,14 @@ public interface SeriesDetailer {
 			"trakt-api-version: " + ApiConfiguration.API_VERSION,
 			"trakt-api-key: " + ApiConfiguration.API_KEY
 	})
-	@GET("/shows/popular/?limit=50&extended=full,images")
+	@GET("/shows/{show}?extended=full,images")
+	void getSeriesDetails(@Path("show") String show, Callback<Show> callback);
+
+
+	@Headers({
+			"trakt-api-version: " + ApiConfiguration.API_VERSION,
+			"trakt-api-key: " + ApiConfiguration.API_KEY
+	})
+	@GET("/shows/popular?limit=50&extended=full,images")
 	void getSeriesList(Callback<List<Show>> callback);
 }

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.adriano.serialwatcher.R;
 
-public class SeriesDetailsInfoFragment extends Fragment {
+public class SeriesInfoFragment extends Fragment {
 
 	private Bundle arguments;
 

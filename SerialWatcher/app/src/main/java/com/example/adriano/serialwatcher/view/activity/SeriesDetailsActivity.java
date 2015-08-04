@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.adriano.serialwatcher.R;
@@ -19,9 +20,15 @@ import com.example.adriano.serialwatcher.model.Favorite;
 import com.example.adriano.serialwatcher.model.Images;
 import com.example.adriano.serialwatcher.model.Show;
 import com.example.adriano.serialwatcher.presenter.SeriesDetailsPresenter;
+import com.example.adriano.serialwatcher.util.FormatUtil;
 import com.example.adriano.serialwatcher.view.adapter.SeriesDetailsAdapter;
 import com.example.adriano.serialwatcher.view.base.BaseNavigationToolbarActivity;
 import com.example.adriano.serialwatcher.view.contract.SeriesDetailsView;
+
+import org.w3c.dom.Text;
+
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class SeriesDetailsActivity extends BaseNavigationToolbarActivity implements SeriesDetailsView {
 
@@ -33,6 +40,7 @@ public class SeriesDetailsActivity extends BaseNavigationToolbarActivity impleme
 	private ImageView seriesDetailsHighlightImage;
 	private FloatingActionButton favoriteView;
 	private FavoriteDAO dao;
+	private ViewPager pager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -138,18 +146,16 @@ public class SeriesDetailsActivity extends BaseNavigationToolbarActivity impleme
 					}
 
 					@Override
-					public void onAnimationCancel(Animator animation) {}
+					public void onAnimationCancel(Animator animation) {
+					}
 
 					@Override
-					public void onAnimationRepeat(Animator animation) {}
+					public void onAnimationRepeat(Animator animation) {
+					}
 				});
 				initial.start();
 			}
 		});
-
-
-		ViewPager vPager = (ViewPager) findViewById(R.id.series_details_view_pager);
-		vPager.setAdapter(new SeriesDetailsAdapter(getSupportFragmentManager(), this));
 
 		this.presenter = new SeriesDetailsPresenter(this, this);
 		if(getIntent().getExtras().get(SHOW) != null){
@@ -169,6 +175,17 @@ public class SeriesDetailsActivity extends BaseNavigationToolbarActivity impleme
 				.centerCrop()
 				.into(seriesDetailsHighlightImage);
 
-		//TODO - carregar detalhes nos fragments
+		TextView rating = (TextView) findViewById(R.id.series_details_grade);
+
+		rating.setText(FormatUtil.formatRating(show.rating()));
+
+		TextView year = (TextView) findViewById(R.id.series_details_year);
+		year.setText(show.year().toString());
+
+		pager = (ViewPager) findViewById(R.id.series_details_view_pager);
+		pager.setAdapter(new SeriesDetailsAdapter(getSupportFragmentManager(), this, show));
+
+		//TODO - carregar lista de season
+		//presenter -> loadSeasons -> onLoad -> updateFragments
 	}
 }

@@ -18,6 +18,12 @@
             android:layout_height="@dimen/highlight_image_max_height"
             tools:ignore="ContentDescription"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/overlay"
+            android:layout_alignBottom="@id/series_details_highlight_image"/>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/series_details_toggle_heart"
             android:layout_width="wrap_content"
@@ -26,6 +32,18 @@
             android:layout_alignRight="@id/series_details_highlight_image"
             android:layout_marginRight="16.2dp"
             android:layout_marginBottom="17.1dp"/>
+
+        <TextView
+            android:id="@+id/series_details_year"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_alignBottom="@id/series_details_highlight_image"
+            android:layout_alignLeft="@id/series_details_highlight_image"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="71dp"/>
 
 
         <android.support.v7.widget.CardView
@@ -37,7 +55,6 @@
             card_view:cardBackgroundColor="@color/pumpkin_orange"
             android:layout_marginLeft="32dp"
             android:layout_marginBottom="16dp"
-
             app:cardCornerRadius="4dp">
 
             <TextView
